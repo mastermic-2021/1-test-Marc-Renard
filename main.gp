@@ -12,5 +12,22 @@ k=encode("haricot");
 
 \\ resoudre l'exercice, bien mettre des ; a la fin des lignes
 
+dechiffrer(c,k) = {
+	for(i=1,#c,if(  c[i]-k[(i-1)%(#k)+1]<0,  \\condition
+		 c[i]=c[i]-k[ (i-1)%(#k)+1  ]+27, \\action si vrai
+		 c[i]=c[i]-k[ (i-1)%(#k)+1  ])); \\ action si faux
+	return(c);
+}
+
+text=encode(text);
+
+
+clair=dechiffrer(text,k);
+
+clair=decode(clair);
+
+
+
+
 \\ a la fin, faire simplement
-\\ print(clair);
+print(clair);
