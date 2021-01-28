@@ -6,4 +6,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: docker pull pascalmolin/parigp-small:latest
-    - run: docker run -v $(pwd):/tmp pascalmolin/parigp-small:latest make -C tmp checkname: Validate
+    - run: docker run -v $(pwd):/tmp pascalmolin/parigp-small:latest make -C tmp check
