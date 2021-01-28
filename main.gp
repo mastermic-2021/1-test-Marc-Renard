@@ -14,9 +14,7 @@ k=encode("haricot");
 
 dechiffrer(c,k) = {
 	\\ on va soutraire le code de k au code de c
-	for(i=1,#c,if(  c[i]-k[(i-1)%(#k)+1]<0,  \\condition
-		 c[i]=c[i]-k[ (i-1)%(#k)+1  ]+27, \\action si vrai   \\pour garder des entier dans Z/27Z
-		 c[i]=c[i]-k[ (i-1)%(#k)+1  ])); \\ action si faux
+	for(i=1,#c,c[i]=(c[i]+27-k[(i-1)%(#k)+1])%27);
 	return(c);
 }
 
